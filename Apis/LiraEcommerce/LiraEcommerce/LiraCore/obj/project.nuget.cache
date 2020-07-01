@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Af1YOtgo7MIXfEc2Yb8aRdjbfWwCC/+n2XqEkDt8sezCXgSbX9ug8PVWAOeXW0PXd1SQd1LuzTPrVikgKiHFTw==",
+  "success": true,
+  "projectFilePath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lira\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,9 @@
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\bin\Debug\netcoreapp3.1\LiraConnection.deps.json
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\bin\Debug\netcoreapp3.1\LiraConnection.dll
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.AssemblyInfoInputs.cache
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.AssemblyInfo.cs
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.csproj.CoreCompileInputs.cache
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\bin\Debug\netcoreapp3.1\LiraConnection.pdb
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.dll
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.pdb
+C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.csprojAssemblyReference.cache
