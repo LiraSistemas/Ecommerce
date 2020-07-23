@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LiraCore.Entidades;
-using LiraCore.Interfaces.Produtos;
+using LiraCore.Interfaces;
 using LiraEcommerce.Entidades;
 using LiraEcommerce.Enum;
 using Microsoft.AspNetCore.Http;

@@ -1,4 +1,4 @@
-using LiraCore.Interfaces.Produtos;
+using LiraCore.Interfaces;
 using LiraData.Entity.CRUD;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

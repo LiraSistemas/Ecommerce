@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LiraCore.Entidades
+﻿namespace LiraCore.Entidades
 {
     public abstract class RetornoRequest<T>
     {

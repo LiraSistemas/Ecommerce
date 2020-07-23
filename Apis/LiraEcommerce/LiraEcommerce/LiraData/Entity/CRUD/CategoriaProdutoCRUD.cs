@@ -1,77 +1,80 @@
 ﻿using LiraCore.Entidades;
 using LiraCore.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LiraData.Entity.CRUD
 {
-    public class ProdutoCRUD : IProduto
+    public class CategoriaProdutoCRUD : ICategoriaProduto
     {
-        private int Add(EcommerceContext context, Produto produto)
+        private int Add(EcommerceContext context, CategoriaProduto cadastro)
         {
-                        
-            context.Add(produto);
-            return context.SaveChanges();            
+
+            context.Add(cadastro);
+            return context.SaveChanges();
         }
 
-        private Task<int> AddAsync(EcommerceContext context, Produto produto)
+        private Task<int> AddAsync(EcommerceContext context, CategoriaProduto cadastro)
         {
 
-            context.Add(produto);
+            context.Add(cadastro);
             return context.SaveChangesAsync();
         }
 
-        public int Add(Produto produto)
+        public int Add(CategoriaProduto cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                context.Add(produto);
+                context.Add(cadastro);
                 return context.SaveChanges();
             }
         }
 
-        public async Task<int> AddAsync(Produto produto)
+        public async Task<int> AddAsync(CategoriaProduto cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                await context.AddAsync(produto);
+                await context.AddAsync(cadastro);
                 return await context.SaveChangesAsync();
             }
         }
 
-        public int Edit(Produto produto)
+        public int Edit(CategoriaProduto cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == produto.Id).FirstOrDefault();
+                var cad = context.CategoriaProduto.Where(X => X.Id == cadastro.Id).FirstOrDefault();
 
-                if (prod != null)
+                if (cad != null)
                 {
-                    prod = produto;
+                    cad = cadastro;
                     return context.SaveChanges();
                 }
                 else
                 {
-                    return Add(context, produto);
+                    return Add(context, cadastro);
                 }
 
             }
         }
 
-        public async Task<int> EditAsync(Produto produto)
+        public async Task<int> EditAsync(CategoriaProduto cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == produto.Id).FirstOrDefault();
+                var cad = context.CategoriaProduto.Where(X => X.Id == cadastro.Id).FirstOrDefault();
 
-                if (prod != null)
+                if (cad != null)
                 {
-                    prod = produto;
+                    cad = cadastro;
                     return await context.SaveChangesAsync();
                 }
                 else
                 {
-                    return await AddAsync(context, produto);
+                    return await AddAsync(context, cadastro);
                 }
 
             }
@@ -80,11 +83,11 @@ namespace LiraData.Entity.CRUD
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == ID).FirstOrDefault();
+                var cad = context.CategoriaProduto.Where(X => X.Id == ID).FirstOrDefault();
 
-                if (prod != null)
+                if (cad != null)
                 {
-                    context.Produtos.Remove(prod);
+                    context.CategoriaProduto.Remove(cad);
                     return context.SaveChanges();
                 }
                 else
@@ -98,11 +101,11 @@ namespace LiraData.Entity.CRUD
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == ID).FirstOrDefault();
+                var cad = context.CategoriaProduto.Where(X => X.Id == ID).FirstOrDefault();
 
-                if (prod != null)
+                if (cad != null)
                 {
-                    context.Produtos.Remove(prod);
+                    context.CategoriaProduto.Remove(cad);
                     return await context.SaveChangesAsync();
                 }
                 else
@@ -112,19 +115,19 @@ namespace LiraData.Entity.CRUD
             }
         }
 
-        public Produto Get(int CodigoObjeto)
+        public CategoriaProduto Get(int CodigoObjeto)
         {
             using (var context = new EcommerceContext())
             {
-                return context.Produtos.Find(CodigoObjeto);
+                return context.CategoriaProduto.Find(CodigoObjeto);
             }
         }
 
-        public async Task<Produto> GetAsync(int CodigoObjeto)
+        public async Task<CategoriaProduto> GetAsync(int CodigoObjeto)
         {
             using (var context = new EcommerceContext())
             {
-                return await context.Produtos.FindAsync(CodigoObjeto);
+                return await context.CategoriaProduto.FindAsync(CodigoObjeto);
             }
         }
     }

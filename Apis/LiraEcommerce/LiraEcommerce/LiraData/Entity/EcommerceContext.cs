@@ -1,17 +1,20 @@
 ﻿using LiraConnection.Interfaces;
 using LiraCore.Entidades;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LiraData.Entity
 {
     public class EcommerceContext : DbContext
     {
-        ISQLConnection _Conexao { get; set; }
+        private ISQLConnection _Conexao;
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<ProdutoEan> ProdutoEan { get; set; }
         public DbSet<ProdutoEstoque> ProdutoEstoque { get; set; }
         public DbSet<ProdutoImagem> ProdutoImagem { get; set; }
-        public DbSet<TipoProduto> TiposProduto { get; set; }
+        public DbSet<CategoriaProduto> CategoriaProduto { get; set; }
+        public DbSet<Parceiro> Parceiros { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -31,10 +34,14 @@ namespace LiraData.Entity
         private void ConfigurarChaves(ModelBuilder modelBuilder)
         {
             ConfigurarChavesProduto(modelBuilder);
+            ConfigurarChavesParceiro(modelBuilder);
+            ConfigurarChavesCliente(modelBuilder);
         }
         private void ConfigurarRelacionamentos(ModelBuilder modelBuilder)
         {
             ConfigurarRelacionamentosProduto(modelBuilder);
+            ConfigurarRelacionamentosParceiro(modelBuilder);
+            ConfigurarRelacionamentosCliente(modelBuilder);
         }
         #region Produto
         private void ConfigurarChavesProduto(ModelBuilder modelBuilder)
@@ -51,39 +58,81 @@ namespace LiraData.Entity
             modelBuilder.Entity<ProdutoImagem>()
                 .HasKey(P => P.ProdutoId);
 
-            modelBuilder.Entity<TipoProduto>()
-                .HasKey(P => P.Codigo);
+            modelBuilder.Entity<CategoriaProduto>()
+                .HasKey(P => P.Id);
         }
          private void ConfigurarRelacionamentosProduto(ModelBuilder modelBuilder)
-        {
-            // Relação unica, Eans não tem ligação inversa
+        {            
             modelBuilder.Entity<Produto>()
-                .HasMany(P => P.Eans)
-                .WithOne(E => E.Produto)
-                .HasForeignKey(E => E.ProdutoId)                
+                .HasOne(P => P.Categoria)
+                .WithMany(P => P.Produto)
                 .IsRequired();
 
-            // Relação unica, Estoque não tem ligação inversa
             modelBuilder.Entity<Produto>()
-                .HasOne(P => P.Estoque)
-                .WithOne()
-                .HasForeignKey<ProdutoEstoque>( E => E.ProdutoId)
-                .IsRequired();                
-
-            // Relação unica, Imagem não tem ligação inversa
-            modelBuilder.Entity<Produto>()
-                .HasOne(P => P.ProdutoImagem)
-                .WithOne()
-                .HasForeignKey<ProdutoImagem>(I => I.ProdutoId)
+                .HasOne(P => P.Parceiro)
+                .WithMany(Pa => Pa.Produtos)
                 .IsRequired();
 
-            // Relação unica, TipoProduto não tem ligação inversa
+            modelBuilder.Entity<ProdutoEan>()
+                .HasOne(P => P.Produto)
+                .WithMany(E => E.Eans)
+                .HasForeignKey(E => E.ProdutoId)
+                .IsRequired();
             
-            modelBuilder.Entity<Produto>()
-                .HasOne(P => P.TipoProduto)
-                .WithOne(P => P.Produto)    
-                .HasForeignKey<TipoProduto>(P => P.ProdutoId)
+            modelBuilder.Entity<ProdutoEstoque>()
+                .HasOne(E => E.Produto)
+                .WithOne(P => P.Estoque)                
+                .IsRequired();                
+            
+            modelBuilder.Entity<ProdutoImagem>()
+                .HasOne(I => I.Produto)
+                .WithOne(P => P.ProdutoImagem)                
                 .IsRequired();
+
+            modelBuilder.Entity<CategoriaProduto>()
+                .HasMany(C => C.Produto)
+                .WithOne(P => P.Categoria);
+
+        }
+        #endregion
+        #region Parceiro
+        private void ConfigurarChavesParceiro(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Parceiro>()
+                .HasKey(P => P.Id);
+        }
+
+        private void ConfigurarRelacionamentosParceiro(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Parceiro>()
+                .HasMany(Pa => Pa.Produtos)
+                .WithOne(P => P.Parceiro);
+
+            modelBuilder.Entity<Parceiro>()
+                .HasMany(C => C.Clientes)
+                .WithOne(P => P.Parceiro)
+                .IsRequired();
+
+        }
+        #endregion
+        #region Cliente
+        private void ConfigurarChavesCliente(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>()
+                .HasKey(P => P.Id);
+        }
+
+        private void ConfigurarRelacionamentosCliente(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Cliente>()
+                .HasOne(P => P.Parceiro)
+                .WithMany(C => C.Clientes);
+
+            modelBuilder.Entity<Cliente>()
+                .HasMany(E => E.ClienteEndereco)
+                .WithOne(C => C.Cliente);
         }
         #endregion
     }

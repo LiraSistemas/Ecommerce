@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiraCore.Entidades
 {
@@ -14,7 +9,6 @@ namespace LiraCore.Entidades
         public int ProdutoId { get; set; }
         [Column(TypeName = "decimal(18,0)")]
         public decimal EAN { get; set; }
-
         public Produto Produto { get; set; }        
     }
 }

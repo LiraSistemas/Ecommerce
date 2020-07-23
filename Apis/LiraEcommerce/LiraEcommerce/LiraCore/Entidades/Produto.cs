@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LiraCore.Entidades
 {
@@ -24,7 +21,7 @@ namespace LiraCore.Entidades
         [Column(TypeName = "decimal(8,2)")]
         public decimal VlAVista { get; set; }
         public int? Linha { get; set; }
-        public int? Categoria { get; set; }
+        
         [Column(TypeName = "varchar(50)")]
         public string NCM { get; set; }
         public int? TipoICMS { get; set; }
@@ -39,9 +36,10 @@ namespace LiraCore.Entidades
         [Column(TypeName = "decimal(8,2)")]
         public decimal? AliquotaCofins { get; set; }        
         public DateTime DataHoraUltimaAlteracao { get; set; }
-        public TipoProduto TipoProduto { get; set; }
+        public CategoriaProduto Categoria { get; set; }
         public ProdutoEstoque Estoque { get; set; }
         public ProdutoImagem ProdutoImagem { get; set; }
+        public Parceiro Parceiro { get; set; }
         public List<ProdutoEan> Eans { get; set; }
 
 

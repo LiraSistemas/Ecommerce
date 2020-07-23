@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LiraCore.Entidades
 {
@@ -14,5 +9,6 @@ namespace LiraCore.Entidades
         public byte[] Imagem { get; set; }
         [Column(TypeName = "varchar(200)")]
         public string LinkImagem {get;set;}
+        public Produto Produto { get; set; }
     }
 }

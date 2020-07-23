@@ -1,10 +1,5 @@
 ﻿using LiraCore.Enuns;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LiraCore.Entidades
 {
@@ -15,6 +10,8 @@ namespace LiraCore.Entidades
         public TipoMedida TipoMedida { get; set; }
         [Column(TypeName = "decimal(8,2)")]
         public decimal Quantidade {get;set;}
+
+        public Produto Produto { get; set; }
 
     }
 }

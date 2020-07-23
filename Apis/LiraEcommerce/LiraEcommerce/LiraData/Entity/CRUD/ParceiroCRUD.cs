@@ -1,77 +1,80 @@
 ﻿using LiraCore.Entidades;
 using LiraCore.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LiraData.Entity.CRUD
 {
-    public class ProdutoCRUD : IProduto
+    public class ParceiroCRUD : IParceiro
     {
-        private int Add(EcommerceContext context, Produto produto)
+        private int Add(EcommerceContext context, Parceiro parceiro)
         {
-                        
-            context.Add(produto);
-            return context.SaveChanges();            
+
+            context.Add(parceiro);
+            return context.SaveChanges();
         }
 
-        private Task<int> AddAsync(EcommerceContext context, Produto produto)
+        private Task<int> AddAsync(EcommerceContext context, Parceiro parceiro)
         {
 
-            context.Add(produto);
+            context.Add(parceiro);
             return context.SaveChangesAsync();
         }
 
-        public int Add(Produto produto)
+        public int Add(Parceiro cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                context.Add(produto);
+                context.Add(cadastro);
                 return context.SaveChanges();
             }
         }
 
-        public async Task<int> AddAsync(Produto produto)
+        public async Task<int> AddAsync(Parceiro cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                await context.AddAsync(produto);
+                await context.AddAsync(cadastro);
                 return await context.SaveChangesAsync();
             }
         }
 
-        public int Edit(Produto produto)
+        public int Edit(Parceiro cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == produto.Id).FirstOrDefault();
+                var parc = context.Parceiros.Where(X => X.Id == cadastro.Id).FirstOrDefault();
 
-                if (prod != null)
+                if (parc != null)
                 {
-                    prod = produto;
+                    parc = cadastro;
                     return context.SaveChanges();
                 }
                 else
                 {
-                    return Add(context, produto);
+                    return Add(context, cadastro);
                 }
 
             }
         }
 
-        public async Task<int> EditAsync(Produto produto)
+        public async Task<int> EditAsync(Parceiro cadastro)
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == produto.Id).FirstOrDefault();
+                var parc = context.Parceiros.Where(X => X.Id == cadastro.Id).FirstOrDefault();
 
-                if (prod != null)
+                if (parc != null)
                 {
-                    prod = produto;
+                    parc = cadastro;
                     return await context.SaveChangesAsync();
                 }
                 else
                 {
-                    return await AddAsync(context, produto);
+                    return await AddAsync(context, cadastro);
                 }
 
             }
@@ -80,11 +83,11 @@ namespace LiraData.Entity.CRUD
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == ID).FirstOrDefault();
+                var parc = context.Parceiros.Where(X => X.Id == ID).FirstOrDefault();
 
-                if (prod != null)
+                if (parc != null)
                 {
-                    context.Produtos.Remove(prod);
+                    context.Parceiros.Remove(parc);
                     return context.SaveChanges();
                 }
                 else
@@ -98,11 +101,11 @@ namespace LiraData.Entity.CRUD
         {
             using (var context = new EcommerceContext())
             {
-                var prod = context.Produtos.Where(X => X.Id == ID).FirstOrDefault();
+                var parc = context.Parceiros.Where(X => X.Id == ID).FirstOrDefault();
 
-                if (prod != null)
+                if (parc != null)
                 {
-                    context.Produtos.Remove(prod);
+                    context.Parceiros.Remove(parc);
                     return await context.SaveChangesAsync();
                 }
                 else
@@ -112,19 +115,19 @@ namespace LiraData.Entity.CRUD
             }
         }
 
-        public Produto Get(int CodigoObjeto)
+        public Parceiro Get(int CodigoObjeto)
         {
             using (var context = new EcommerceContext())
             {
-                return context.Produtos.Find(CodigoObjeto);
+                return context.Parceiros.Find(CodigoObjeto);
             }
         }
 
-        public async Task<Produto> GetAsync(int CodigoObjeto)
+        public async Task<Parceiro> GetAsync(int CodigoObjeto)
         {
             using (var context = new EcommerceContext())
             {
-                return await context.Produtos.FindAsync(CodigoObjeto);
+                return await context.Parceiros.FindAsync(CodigoObjeto);
             }
         }
     }
