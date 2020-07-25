@@ -1,11 +1,10 @@
 ﻿using LiraConnection.Interfaces;
 using LiraCore.Entidades;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography.X509Certificates;
 
 namespace LiraData.Entity
 {
-    public class EcommerceContext : DbContext
+    public class LiraContext : DbContext
     {
         private ISQLConnection _Conexao;
         public DbSet<Produto> Produtos { get; set; }

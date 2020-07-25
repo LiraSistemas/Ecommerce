@@ -7,6 +7,8 @@ namespace LiraCore.Interfaces
 {
     public interface ICadastro<T> where T : class
     {
+        List<T> Get();
+        Task<List<T>> GetAsync();
         T Get(int CodigoObjeto);
         Task<T> GetAsync(int CodigoObjeto);
         int Add(T cadastro);

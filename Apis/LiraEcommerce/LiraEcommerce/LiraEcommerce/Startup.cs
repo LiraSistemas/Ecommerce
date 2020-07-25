@@ -23,7 +23,10 @@ namespace LiraEcommerce
             services.AddControllers();
 
             // Injeção de dependencia
-            services.AddScoped(typeof(IProduto), typeof(ProdutoCRUD));
+            services.AddScoped(typeof(IProduto), typeof(LiraData.FlatFile.CRUD.ProdutoCRUD));
+
+            services.AddScoped(typeof(ICategoriaServico), typeof(LiraData.FlatFile.CRUD.CategoriaServicoCRUD));
+            services.AddScoped(typeof(ISubCategoriaServico), typeof(LiraData.FlatFile.CRUD.SubCategoriaServicoCRUD));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

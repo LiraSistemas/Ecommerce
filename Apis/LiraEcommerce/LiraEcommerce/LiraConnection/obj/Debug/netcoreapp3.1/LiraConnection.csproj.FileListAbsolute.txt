@@ -6,4 +6,3 @@ C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraCon
 C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\bin\Debug\netcoreapp3.1\LiraConnection.pdb
 C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.dll
 C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.pdb
-C:\FontesLirasSistemas\EcommerceDosLira\Apis\LiraEcommerce\LiraEcommerce\LiraConnection\obj\Debug\netcoreapp3.1\LiraConnection.csprojAssemblyReference.cache

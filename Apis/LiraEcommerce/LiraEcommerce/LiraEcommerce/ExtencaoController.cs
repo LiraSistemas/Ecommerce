@@ -9,12 +9,12 @@ namespace LiraEcommerce
 {
     public static class ExtencaoController
     {
-        public static RetornoRequestLiraEcommerce GetRetorno(RetornoRequisicao retorno)
+        public static RetornoRequestLira GetRetorno(RetornoRequisicao retorno)
         {
-            return new RetornoRequestLiraEcommerce(retorno);
+            return new RetornoRequestLira(retorno);
         }
 
-        public static RetornoRequestLiraEcommerce GetRetorno(RetornoRequisicao retorno, Exception ex)
+        public static RetornoRequestLira GetRetorno(RetornoRequisicao retorno, Exception ex)
         {
             var ret = GetRetorno(retorno);
             ret.MsgAdicional = ex.Message;

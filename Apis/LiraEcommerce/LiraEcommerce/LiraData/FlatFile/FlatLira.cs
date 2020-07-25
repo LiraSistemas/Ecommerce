@@ -8,15 +8,24 @@ using System.Text;
 
 namespace LiraData.FlatFile
 {
-    public class FlatEcommerce
+    public class FlatLira
     {
         public const string ArqProdutos = "CadastroProdutos.bin";
+
         public const string ArqCategoria = "CadastroCategoriaProduto.bin";
+        public const string ArqCategoriaServico = "CadastroCategoriaServico.bin";
+        public const string ArqSubCategoriaServico = "CadastroSubCategoriaServico.bin";
+
         public const string ArqParceiro = "CadastroParceiro.bin";
         public const string ArqCliente = "CadastroCliente.bin";
 
+
         private static List<Produto> _CadastroProdutos;
+
         private static List<CategoriaProduto> _CadastroCategoriaProduto;
+        private static List<CategoriaServico> _CadastroCategoriaServico;
+        private static List<SubCategoriaServico> _CadastroSubCategoriaServico;
+
         private static List<Parceiro> _CadastroParceiro;
         private static List<Cliente> _CadastroCliente;
         public static List<Produto> CadastroProdutos 
@@ -57,6 +66,46 @@ namespace LiraData.FlatFile
             set
             {
                 _CadastroCategoriaProduto = value;
+            }
+        }
+        public static List<CategoriaServico> CadastroCategoriaServico
+        {
+            get
+            {
+                if (_CadastroCategoriaServico != null)
+                {
+                    return _CadastroCategoriaServico;
+
+                }
+                else
+                {
+                    CadastroCategoriaServico = GetCadastro<CategoriaServico>(ArqCategoriaServico);
+                    return _CadastroCategoriaServico;
+                }
+            }
+            set
+            {
+                _CadastroCategoriaServico = value;
+            }
+        }
+        public static List<SubCategoriaServico> CadastroSubCategoriaServico
+        {
+            get
+            {
+                if (_CadastroSubCategoriaServico != null)
+                {
+                    return _CadastroSubCategoriaServico;
+
+                }
+                else
+                {
+                    _CadastroSubCategoriaServico = GetCadastro<SubCategoriaServico>(ArqSubCategoriaServico);
+                    return _CadastroSubCategoriaServico;
+                }
+            }
+            set
+            {
+                _CadastroSubCategoriaServico = value;
             }
         }
         public static List<Parceiro> CadastroParceiro
@@ -104,7 +153,7 @@ namespace LiraData.FlatFile
         {
             var path = AppDomain.CurrentDomain.BaseDirectory + Arquivo;
 
-            if (Directory.Exists(path))
+            if (File.Exists(path))
             {
                 return GetBin<T>(path);
             }
@@ -125,18 +174,34 @@ namespace LiraData.FlatFile
 
         private static List<T> GetBin<T>(string Path)
         {
+            FileStream SR = new FileStream(Path, FileMode.Open);
             BinaryFormatter BF = new BinaryFormatter();
-            StreamReader SR = new StreamReader(Path);
 
-            return (List<T>)BF.Deserialize(SR.BaseStream);
+            try
+            {
+
+                return (List<T>)BF.Deserialize(SR);
+            }
+            finally
+            {
+                SR.Close();
+            }
+
         }
 
         private static void SetBin<T>(List<T> Cadastro, string Path)
         {
+            FileStream SR = new FileStream(Path, FileMode.OpenOrCreate);
             BinaryFormatter BF = new BinaryFormatter();
-            StreamReader SR = new StreamReader(Path);
+            try
+            {
+                BF.Serialize(SR, Cadastro);
+            }
+            finally
+            {
+                SR.Close();
+            }
 
-            BF.Serialize(SR.BaseStream, Cadastro);
         }
     }
 }

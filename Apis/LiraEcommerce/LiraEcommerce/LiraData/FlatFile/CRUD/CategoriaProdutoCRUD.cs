@@ -14,9 +14,9 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatEcommerce.CadastroCategoriaProduto.Count() + 1;
-                FlatEcommerce.CadastroCategoriaProduto.Add(cadastro);
-                FlatEcommerce.SetCadastro<CategoriaProduto>(FlatEcommerce.CadastroCategoriaProduto, FlatEcommerce.ArqCategoria);
+                cadastro.Id = FlatLira.CadastroCategoriaProduto.Count() + 1;
+                FlatLira.CadastroCategoriaProduto.Add(cadastro);
+                FlatLira.SetCadastro<CategoriaProduto>(FlatLira.CadastroCategoriaProduto, FlatLira.ArqCategoria);
 
                 return 1;
             }
@@ -38,8 +38,8 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                FlatEcommerce.CadastroCategoriaProduto.Remove(FlatEcommerce.CadastroCategoriaProduto.Find(X => X.Id == ID));
-                FlatEcommerce.SetCadastro<CategoriaProduto>(FlatEcommerce.CadastroCategoriaProduto, FlatEcommerce.ArqCategoria);
+                FlatLira.CadastroCategoriaProduto.Remove(FlatLira.CadastroCategoriaProduto.Find(X => X.Id == ID));
+                FlatLira.SetCadastro<CategoriaProduto>(FlatLira.CadastroCategoriaProduto, FlatLira.ArqCategoria);
 
                 return 1;
             }
@@ -62,10 +62,10 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                var Prod = FlatEcommerce.CadastroCategoriaProduto.Find(X => X.Id == cadastro.Id);
+                var Prod = FlatLira.CadastroCategoriaProduto.Find(X => X.Id == cadastro.Id);
                 Prod = cadastro;
 
-                FlatEcommerce.SetCadastro<CategoriaProduto>(FlatEcommerce.CadastroCategoriaProduto, FlatEcommerce.ArqCategoria);
+                FlatLira.SetCadastro<CategoriaProduto>(FlatLira.CadastroCategoriaProduto, FlatLira.ArqCategoria);
 
                 return 1;
             }
@@ -85,7 +85,12 @@ namespace LiraData.FlatFile.CRUD
 
         public CategoriaProduto Get(int CodigoObjeto)
         {
-            return FlatEcommerce.CadastroCategoriaProduto.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+            return FlatLira.CadastroCategoriaProduto.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+        }
+
+        public List<CategoriaProduto> Get()
+        {
+            throw new NotImplementedException();
         }
 
         public Task<CategoriaProduto> GetAsync(int CodigoObjeto)
@@ -94,6 +99,11 @@ namespace LiraData.FlatFile.CRUD
             T.Start();
 
             return T;
+        }
+
+        public Task<List<CategoriaProduto>> GetAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

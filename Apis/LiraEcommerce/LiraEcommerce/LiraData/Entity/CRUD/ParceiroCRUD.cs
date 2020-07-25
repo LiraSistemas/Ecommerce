@@ -10,14 +10,14 @@ namespace LiraData.Entity.CRUD
 {
     public class ParceiroCRUD : IParceiro
     {
-        private int Add(EcommerceContext context, Parceiro parceiro)
+        private int Add(LiraContext context, Parceiro parceiro)
         {
 
             context.Add(parceiro);
             return context.SaveChanges();
         }
 
-        private Task<int> AddAsync(EcommerceContext context, Parceiro parceiro)
+        private Task<int> AddAsync(LiraContext context, Parceiro parceiro)
         {
 
             context.Add(parceiro);
@@ -26,7 +26,7 @@ namespace LiraData.Entity.CRUD
 
         public int Add(Parceiro cadastro)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 context.Add(cadastro);
                 return context.SaveChanges();
@@ -35,7 +35,7 @@ namespace LiraData.Entity.CRUD
 
         public async Task<int> AddAsync(Parceiro cadastro)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 await context.AddAsync(cadastro);
                 return await context.SaveChangesAsync();
@@ -44,7 +44,7 @@ namespace LiraData.Entity.CRUD
 
         public int Edit(Parceiro cadastro)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var parc = context.Parceiros.Where(X => X.Id == cadastro.Id).FirstOrDefault();
 
@@ -63,7 +63,7 @@ namespace LiraData.Entity.CRUD
 
         public async Task<int> EditAsync(Parceiro cadastro)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var parc = context.Parceiros.Where(X => X.Id == cadastro.Id).FirstOrDefault();
 
@@ -81,7 +81,7 @@ namespace LiraData.Entity.CRUD
         }
         public int Delete(int ID)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var parc = context.Parceiros.Where(X => X.Id == ID).FirstOrDefault();
 
@@ -99,7 +99,7 @@ namespace LiraData.Entity.CRUD
 
         public async Task<int> DeleteAsync(int ID)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var parc = context.Parceiros.Where(X => X.Id == ID).FirstOrDefault();
 
@@ -117,7 +117,7 @@ namespace LiraData.Entity.CRUD
 
         public Parceiro Get(int CodigoObjeto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 return context.Parceiros.Find(CodigoObjeto);
             }
@@ -125,10 +125,20 @@ namespace LiraData.Entity.CRUD
 
         public async Task<Parceiro> GetAsync(int CodigoObjeto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 return await context.Parceiros.FindAsync(CodigoObjeto);
             }
+        }
+
+        public List<Parceiro> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Parceiro>> GetAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

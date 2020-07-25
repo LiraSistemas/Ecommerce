@@ -1,0 +1,7 @@
+CATEGORIA
+/CategoriaServico GET, POST, PUT
+/CategoriaServico GET, DELETE
+
+SUBCATEGORIA
+/SubCategoriaServico GET, POST, PUT
+/SubCategoriaServico GET, DELETE

@@ -1,6 +1,7 @@
 ﻿using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,9 +13,9 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatEcommerce.CadastroCliente.Count() + 1;
-                FlatEcommerce.CadastroCliente.Add(cadastro);
-                FlatEcommerce.SetCadastro<Cliente>(FlatEcommerce.CadastroCliente, FlatEcommerce.ArqCliente);
+                cadastro.Id = FlatLira.CadastroCliente.Count() + 1;
+                FlatLira.CadastroCliente.Add(cadastro);
+                FlatLira.SetCadastro<Cliente>(FlatLira.CadastroCliente, FlatLira.ArqCliente);
 
                 return 1;
             }
@@ -54,7 +55,17 @@ namespace LiraData.FlatFile.CRUD
             throw new NotImplementedException();
         }
 
+        public List<Cliente> Get()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Cliente> GetAsync(int CodigoObjeto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Cliente>> GetAsync()
         {
             throw new NotImplementedException();
         }

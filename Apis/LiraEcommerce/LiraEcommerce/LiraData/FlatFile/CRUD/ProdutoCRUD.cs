@@ -15,9 +15,9 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatEcommerce.CadastroProdutos.Count() + 1;
-                FlatEcommerce.CadastroProdutos.Add(cadastro);
-                FlatEcommerce.SetCadastro<Produto>(FlatEcommerce.CadastroProdutos, FlatEcommerce.ArqProdutos);
+                cadastro.Id = FlatLira.CadastroProdutos.Count() + 1;
+                FlatLira.CadastroProdutos.Add(cadastro);
+                FlatLira.SetCadastro<Produto>(FlatLira.CadastroProdutos, FlatLira.ArqProdutos);
 
                 return 1;
             }
@@ -39,8 +39,8 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                FlatEcommerce.CadastroProdutos.Remove(FlatEcommerce.CadastroProdutos.Find(X => X.Id == ID));
-                FlatEcommerce.SetCadastro<Produto>(FlatEcommerce.CadastroProdutos, FlatEcommerce.ArqProdutos);
+                FlatLira.CadastroProdutos.Remove(FlatLira.CadastroProdutos.Find(X => X.Id == ID));
+                FlatLira.SetCadastro<Produto>(FlatLira.CadastroProdutos, FlatLira.ArqProdutos);
 
                 return 1;
             }
@@ -63,10 +63,10 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                var Prod = FlatEcommerce.CadastroProdutos.Find(X => X.Id == cadastro.Id);
+                var Prod = FlatLira.CadastroProdutos.Find(X => X.Id == cadastro.Id);
                 Prod = cadastro;
 
-                FlatEcommerce.SetCadastro<Produto>(FlatEcommerce.CadastroProdutos, FlatEcommerce.ArqProdutos);
+                FlatLira.SetCadastro<Produto>(FlatLira.CadastroProdutos, FlatLira.ArqProdutos);
 
                 return 1;
             }
@@ -86,7 +86,12 @@ namespace LiraData.FlatFile.CRUD
 
         public Produto Get(int CodigoObjeto)
         {
-            return FlatEcommerce.CadastroProdutos.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+            return FlatLira.CadastroProdutos.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+        }
+
+        public List<Produto> Get()
+        {
+            throw new NotImplementedException();
         }
 
         public Task<Produto> GetAsync(int CodigoObjeto)
@@ -95,6 +100,11 @@ namespace LiraData.FlatFile.CRUD
             T.Start();
 
             return T;
+        }
+
+        public Task<List<Produto>> GetAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

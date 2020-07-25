@@ -1,17 +1,13 @@
 ﻿using LiraCore.Entidades;
 using LiraEcommerce.Enum;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace LiraEcommerce.Entidades
 {
-    public class RetornoRequestLiraEcommerce : RetornoRequest<RetornoRequisicao>
+    public class RetornoRequestLira : RetornoRequest<RetornoRequisicao>
     {
-        public RetornoRequestLiraEcommerce(RetornoRequisicao retorno) : base(retorno) {  }
+        public RetornoRequestLira(RetornoRequisicao retorno) : base(retorno) {  }
 
         protected override void AtribuiValoresRetorno()
         {

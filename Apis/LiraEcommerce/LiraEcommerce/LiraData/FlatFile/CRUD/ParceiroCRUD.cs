@@ -14,9 +14,9 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatEcommerce.CadastroParceiro.Count() + 1;
-                FlatEcommerce.CadastroParceiro.Add(cadastro);
-                FlatEcommerce.SetCadastro<Parceiro>(FlatEcommerce.CadastroParceiro, FlatEcommerce.ArqParceiro);
+                cadastro.Id = FlatLira.CadastroParceiro.Count() + 1;
+                FlatLira.CadastroParceiro.Add(cadastro);
+                FlatLira.SetCadastro<Parceiro>(FlatLira.CadastroParceiro, FlatLira.ArqParceiro);
 
                 return 1;
             }
@@ -38,8 +38,8 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                FlatEcommerce.CadastroParceiro.Remove(FlatEcommerce.CadastroParceiro.Find(X => X.Id == ID));
-                FlatEcommerce.SetCadastro<Parceiro>(FlatEcommerce.CadastroParceiro, FlatEcommerce.ArqParceiro);
+                FlatLira.CadastroParceiro.Remove(FlatLira.CadastroParceiro.Find(X => X.Id == ID));
+                FlatLira.SetCadastro<Parceiro>(FlatLira.CadastroParceiro, FlatLira.ArqParceiro);
 
                 return 1;
             }
@@ -62,10 +62,10 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                var Prod = FlatEcommerce.CadastroParceiro.Find(X => X.Id == cadastro.Id);
+                var Prod = FlatLira.CadastroParceiro.Find(X => X.Id == cadastro.Id);
                 Prod = cadastro;
 
-                FlatEcommerce.SetCadastro<Parceiro>(FlatEcommerce.CadastroParceiro, FlatEcommerce.ArqParceiro);
+                FlatLira.SetCadastro<Parceiro>(FlatLira.CadastroParceiro, FlatLira.ArqParceiro);
 
                 return 1;
             }
@@ -85,7 +85,12 @@ namespace LiraData.FlatFile.CRUD
 
         public Parceiro Get(int CodigoObjeto)
         {
-            return FlatEcommerce.CadastroParceiro.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+            return FlatLira.CadastroParceiro.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+        }
+
+        public List<Parceiro> Get()
+        {
+            throw new NotImplementedException();
         }
 
         public Task<Parceiro> GetAsync(int CodigoObjeto)
@@ -94,6 +99,11 @@ namespace LiraData.FlatFile.CRUD
             T.Start();
 
             return T;
+        }
+
+        public Task<List<Parceiro>> GetAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using LiraCore.Entidades;
 using LiraCore.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,14 +8,14 @@ namespace LiraData.Entity.CRUD
 {
     public class ProdutoCRUD : IProduto
     {
-        private int Add(EcommerceContext context, Produto produto)
+        private int Add(LiraContext context, Produto produto)
         {
                         
             context.Add(produto);
             return context.SaveChanges();            
         }
 
-        private Task<int> AddAsync(EcommerceContext context, Produto produto)
+        private Task<int> AddAsync(LiraContext context, Produto produto)
         {
 
             context.Add(produto);
@@ -23,7 +24,7 @@ namespace LiraData.Entity.CRUD
 
         public int Add(Produto produto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 context.Add(produto);
                 return context.SaveChanges();
@@ -32,7 +33,7 @@ namespace LiraData.Entity.CRUD
 
         public async Task<int> AddAsync(Produto produto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 await context.AddAsync(produto);
                 return await context.SaveChangesAsync();
@@ -41,7 +42,7 @@ namespace LiraData.Entity.CRUD
 
         public int Edit(Produto produto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var prod = context.Produtos.Where(X => X.Id == produto.Id).FirstOrDefault();
 
@@ -60,7 +61,7 @@ namespace LiraData.Entity.CRUD
 
         public async Task<int> EditAsync(Produto produto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var prod = context.Produtos.Where(X => X.Id == produto.Id).FirstOrDefault();
 
@@ -78,7 +79,7 @@ namespace LiraData.Entity.CRUD
         }
         public int Delete(int ID)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var prod = context.Produtos.Where(X => X.Id == ID).FirstOrDefault();
 
@@ -96,7 +97,7 @@ namespace LiraData.Entity.CRUD
 
         public async Task<int> DeleteAsync(int ID)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 var prod = context.Produtos.Where(X => X.Id == ID).FirstOrDefault();
 
@@ -114,7 +115,7 @@ namespace LiraData.Entity.CRUD
 
         public Produto Get(int CodigoObjeto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 return context.Produtos.Find(CodigoObjeto);
             }
@@ -122,10 +123,20 @@ namespace LiraData.Entity.CRUD
 
         public async Task<Produto> GetAsync(int CodigoObjeto)
         {
-            using (var context = new EcommerceContext())
+            using (var context = new LiraContext())
             {
                 return await context.Produtos.FindAsync(CodigoObjeto);
             }
+        }
+
+        public List<Produto> Get()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<List<Produto>> GetAsync()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
