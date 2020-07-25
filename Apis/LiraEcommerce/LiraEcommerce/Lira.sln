@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiraEcommerce", "LiraEcommerce\LiraEcommerce.csproj", "{7BFFF3E1-B52F-4321-8DCD-5746C97BD3A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiraBelle", "LiraEcommerce\LiraBelle.csproj", "{7BFFF3E1-B52F-4321-8DCD-5746C97BD3A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiraData", "LiraData\LiraData.csproj", "{ADC2BFEF-9B73-446C-91E2-7A310F87067D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiraData", "LiraData\LiraData.csproj", "{ADC2BFEF-9B73-446C-91E2-7A310F87067D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiraCore", "LiraCore\LiraCore.csproj", "{D1AB7330-4591-492D-BCDE-DD8B73E6FCF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiraCore", "LiraCore\LiraCore.csproj", "{D1AB7330-4591-492D-BCDE-DD8B73E6FCF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiraConnection", "LiraConnection\LiraConnection.csproj", "{1719DF31-CECF-4650-A1CC-BF846524D3D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiraConnection", "LiraConnection\LiraConnection.csproj", "{1719DF31-CECF-4650-A1CC-BF846524D3D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

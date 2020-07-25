@@ -5119,9 +5119,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce.csproj",
-      "projectName": "LiraEcommerce",
-      "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce.csproj",
+      "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
+      "projectName": "LiraBelle",
+      "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
       "packagesPath": "C:\\Users\\Lira\\.nuget\\packages\\",
       "outputPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,0 +1,293 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj": {}
+  },
+  "projects": {
+    "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj",
+        "projectName": "LiraConnection",
+        "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj",
+        "packagesPath": "C:\\Users\\Lira\\.nuget\\packages\\",
+        "outputPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj",
+        "projectName": "LiraCore",
+        "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj",
+        "packagesPath": "C:\\Users\\Lira\\.nuget\\packages\\",
+        "outputPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj",
+        "projectName": "LiraData",
+        "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj",
+        "packagesPath": "C:\\Users\\Lira\\.nuget\\packages\\",
+        "outputPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj": {
+                "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj"
+              },
+              "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj": {
+                "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
+        "projectName": "LiraBelle",
+        "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
+        "packagesPath": "C:\\Users\\Lira\\.nuget\\packages\\",
+        "outputPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Lira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj": {
+                "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj"
+              },
+              "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj": {
+                "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

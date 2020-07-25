@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3bgsMzkp4W3GJxvfzlPYOLJWSp5KY9bsCf8GLVySjQqIIWWbXMoG9aomHM19oJl8HTsu93QRHxcCV0CEeDph7Q==",
+  "dgSpecHash": "jjv488CV8SRUfHj8BQ3syiIJDF7sSV0XPH3t+y87CTjKbThLagluFQvE45JFprAPK2RhYeMG4X6vDxUH9U+qow==",
   "success": true,
-  "projectFilePath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce.csproj",
+  "projectFilePath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lira\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Lira\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
