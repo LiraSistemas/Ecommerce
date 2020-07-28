@@ -13,7 +13,7 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatLira.CadastroCliente.Count() + 1;
+                cadastro.Id = FlatLira.CadastroCliente.Max(X => X.Id) + 1;
                 FlatLira.CadastroCliente.Add(cadastro);
                 FlatLira.SetCadastro<Cliente>(FlatLira.CadastroCliente, FlatLira.ArqCliente);
 

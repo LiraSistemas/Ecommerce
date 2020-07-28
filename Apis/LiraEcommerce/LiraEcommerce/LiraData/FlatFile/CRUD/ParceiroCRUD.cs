@@ -14,7 +14,7 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatLira.CadastroParceiro.Count() + 1;
+                cadastro.Id = FlatLira.CadastroParceiro.Max(X => X.Id) + 1;
                 FlatLira.CadastroParceiro.Add(cadastro);
                 FlatLira.SetCadastro<Parceiro>(FlatLira.CadastroParceiro, FlatLira.ArqParceiro);
 

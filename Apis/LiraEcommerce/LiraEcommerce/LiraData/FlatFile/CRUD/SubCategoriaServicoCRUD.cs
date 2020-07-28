@@ -1,9 +1,7 @@
 ﻿using LiraCore.Entidades;
 using LiraCore.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LiraData.FlatFile.CRUD
@@ -15,7 +13,7 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatLira.CadastroCategoriaServico.Count + 1;
+                cadastro.Id = FlatLira.CadastroSubCategoriaServico.Max(X => X.Id) + 1;
                 cadastro.Categoria = FlatLira.CadastroCategoriaServico.Find(X => X.Id == cadastro.IdCategoria);
                 FlatLira.CadastroSubCategoriaServico.Add(cadastro);
                 FlatLira.SetCadastro<SubCategoriaServico>(FlatLira.CadastroSubCategoriaServico, FlatLira.ArqSubCategoriaServico);

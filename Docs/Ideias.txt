@@ -1,0 +1,4 @@
+Trocar % de ganho por descontos na plataforma para os primeiros cadastrados.
+Area adm mostrar quantidade de agendamentos via app e via normal. Comparativo necessario para mostrar eficiencia do sistema
+
+Estabelecimento mostrar perfil, foto de trabalhos ja realizado, fedbeek de clientes e nota de 0 a 5 estrelas

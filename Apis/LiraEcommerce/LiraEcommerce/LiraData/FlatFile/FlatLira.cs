@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.Json;
 
 namespace LiraData.FlatFile
 {
@@ -19,6 +20,8 @@ namespace LiraData.FlatFile
         public const string ArqParceiro = "CadastroParceiro.bin";
         public const string ArqCliente = "CadastroCliente.bin";
 
+        public const string ArqEstabelecimento = "CadastroEstabelecimento.bin";
+
 
         private static List<Produto> _CadastroProdutos;
 
@@ -28,6 +31,8 @@ namespace LiraData.FlatFile
 
         private static List<Parceiro> _CadastroParceiro;
         private static List<Cliente> _CadastroCliente;
+
+        private static List<Estabelecimento> _CadastroEstabelecimento;
         public static List<Produto> CadastroProdutos 
         {
             get 
@@ -99,7 +104,7 @@ namespace LiraData.FlatFile
                 }
                 else
                 {
-                    _CadastroSubCategoriaServico = GetCadastro<SubCategoriaServico>(ArqSubCategoriaServico);
+                    CadastroSubCategoriaServico = GetCadastro<SubCategoriaServico>(ArqSubCategoriaServico);
                     return _CadastroSubCategoriaServico;
                 }
             }
@@ -149,6 +154,27 @@ namespace LiraData.FlatFile
             }
         }
 
+        public static List<Estabelecimento> CadastroEstabelecimento
+        {
+            get
+            {
+                if (_CadastroEstabelecimento != null)
+                {
+                    return _CadastroEstabelecimento;
+
+                }
+                else
+                {
+                    CadastroEstabelecimento = GetCadastro<Estabelecimento>(ArqEstabelecimento);
+                    return _CadastroEstabelecimento;
+                }
+            }
+            set
+            {
+                _CadastroEstabelecimento = value;
+            }
+        }
+
         private static List<T> GetCadastro<T>(string Arquivo)
         {
             var path = AppDomain.CurrentDomain.BaseDirectory + Arquivo;
@@ -174,32 +200,41 @@ namespace LiraData.FlatFile
 
         private static List<T> GetBin<T>(string Path)
         {
-            FileStream SR = new FileStream(Path, FileMode.Open);
-            BinaryFormatter BF = new BinaryFormatter();
+            //FileStream SR = new FileStream(Path, FileMode.Open);
+            //BinaryFormatter BF = new BinaryFormatter();            
 
             try
             {
+                var json = File.ReadAllText(Path);
 
-                return (List<T>)BF.Deserialize(SR);
+                return JsonSerializer.Deserialize<List<T>>(json);
+
+                //SR.Seek(0, SeekOrigin.Begin);
+                //return (List<T>)BF.Deserialize(SR);
             }
             finally
             {
-                SR.Close();
+                //SR.Close();
             }
 
         }
 
         private static void SetBin<T>(List<T> Cadastro, string Path)
         {
-            FileStream SR = new FileStream(Path, FileMode.OpenOrCreate);
-            BinaryFormatter BF = new BinaryFormatter();
+            //FileStream SR = new FileStream(Path, FileMode.OpenOrCreate);
+            //StreamWriter SW = new StreamWriter(Path);            
+            //BinaryFormatter BF = new BinaryFormatter();
+
             try
             {
-                BF.Serialize(SR, Cadastro);
+                
+                var json = JsonSerializer.Serialize(Cadastro);
+                File.WriteAllText(Path, json);
+                //BF.Serialize(SR, Cadastro);
             }
             finally
             {
-                SR.Close();
+                //SR.Close();
             }
 
         }

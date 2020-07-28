@@ -1,6 +1,7 @@
 ﻿using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatLira.CadastroCategoriaServico.Count + 1;
+                cadastro.Id = FlatLira.CadastroCategoriaServico.Max(X => X.Id) + 1;
                 FlatLira.CadastroCategoriaServico.Add(cadastro);
                 FlatLira.SetCadastro<CategoriaServico>(FlatLira.CadastroCategoriaServico, FlatLira.ArqCategoriaServico);
 
@@ -87,12 +88,42 @@ namespace LiraData.FlatFile.CRUD
 
         public CategoriaServico Get(int CodigoObjeto)
         {
-            return FlatLira.CadastroCategoriaServico.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+            var retorno = FlatLira.CadastroCategoriaServico.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
+            retorno.SubCategorias = FlatLira.CadastroSubCategoriaServico.Where(X => X.IdCategoria == retorno.Id).ToList();
+
+            return retorno;
         }
 
         public List<CategoriaServico> Get()
         {
-            return FlatLira.CadastroCategoriaServico;
+            List<CategoriaServico> retorno;
+
+            if (FlatLira.CadastroSubCategoriaServico.Count > 0)
+            {
+                 retorno = (from cat in FlatLira.CadastroCategoriaServico
+                              join sub in FlatLira.CadastroSubCategoriaServico.DefaultIfEmpty() on cat.Id equals sub?.IdCategoria ?? 0
+                              group new { cat, sub } by cat.Id into newgroup
+                              select new CategoriaServico()
+                              {
+                                  Id = newgroup.FirstOrDefault().cat.Id,
+                                  Descricao = newgroup.FirstOrDefault().cat.Descricao,
+                                  SubCategorias = newgroup.Select(X => new SubCategoriaServico()
+                                  { 
+                                      Id = X.sub.Id,
+                                      IdCategoria = X.sub.IdCategoria,
+                                      Descricao = X.sub.Descricao,
+                                      Link = X.sub.Link
+
+                                      }).ToList()
+                              }).ToList();
+            }
+            else
+            {
+                retorno = FlatLira.CadastroCategoriaServico;
+            }
+
+
+            return retorno.ToList();
         }
 
         public Task<CategoriaServico> GetAsync(int CodigoObjeto)

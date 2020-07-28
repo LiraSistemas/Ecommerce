@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LiraCore.Enuns
 {
-    public enum StatusParceiro
+    public enum StatusEstabelecimento
     {
         Editando,
         Ativado,
