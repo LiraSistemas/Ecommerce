@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using LiraEcommerce;
 using LiraEcommerce.Enum;
@@ -43,7 +44,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await CategoriaServicoCRUD.GetAsync(Id);
+                var serv = await EstabelecimentoCRUD.GetAsync(Id);
 
                 return Ok(serv);
             }
@@ -54,19 +55,19 @@ namespace LiraBelle.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CategoriaServico categoria)
+        public async Task<IActionResult> Add([FromBody] Estabelecimento cadastro)
         {
             try
             {
-                if (categoria != null)
+                if (cadastro != null)
                 {
-                    await CategoriaServicoCRUD.AddAsync(categoria);
+                    await EstabelecimentoCRUD.AddAsync(cadastro);
 
                     return Ok();
                 }
                 else
                 {
-                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.CategoriaNaoInformada));
+                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.Estabelecimento));
                 }
             }
             catch (Exception ex)
@@ -76,19 +77,19 @@ namespace LiraBelle.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Edit([FromBody] CategoriaServico categoria)
+        public async Task<IActionResult> Edit([FromBody] Estabelecimento cadastro)
         {
             try
             {
-                if (categoria != null)
+                if (cadastro != null)
                 {
-                    await CategoriaServicoCRUD.EditAsync(categoria);
+                    await EstabelecimentoCRUD.EditAsync(cadastro);
 
                     return Ok();
                 }
                 else
                 {
-                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.CategoriaNaoInformada));
+                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.Estabelecimento));
                 }
             }
             catch (Exception ex)
@@ -105,13 +106,13 @@ namespace LiraBelle.Controllers
             {
                 if (id != null)
                 {
-                    await CategoriaServicoCRUD.DeleteAsync(id ?? 0);
+                    await EstabelecimentoCRUD.DeleteAsync(id ?? 0);
 
                     return Ok();
                 }
                 else
                 {
-                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.CategoriaNaoInformada));
+                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.Estabelecimento));
                 }
             }
             catch (Exception ex)
