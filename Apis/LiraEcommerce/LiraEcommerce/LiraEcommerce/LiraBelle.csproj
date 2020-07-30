@@ -9,9 +9,5 @@
     <ProjectReference Include="..\LiraData\LiraData.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
-
 
 </Project>

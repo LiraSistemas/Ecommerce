@@ -14,7 +14,9 @@ namespace LiraEcommerce.Enum
         [DescriptionAttribute("SubCategoria não informado(-70)")]
         SubCategoriaNaoInformada = 70,
         [DescriptionAttribute("Estabelecimento não informado(-80)")]
-        Estabelecimento = 80,
+        EstabelecimentoNaoInformado = 80,
+        [DescriptionAttribute("Estabelecimento não informado(-90)")]
+        UsuarioNaoInformado = 90,
         [DescriptionAttribute("Erro nao identificado (-999)")]
         ErroNaoIdentificado = 999
 

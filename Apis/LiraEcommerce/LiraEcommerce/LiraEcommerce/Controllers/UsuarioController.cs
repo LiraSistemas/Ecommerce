@@ -6,21 +6,21 @@ using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using LiraEcommerce;
 using LiraEcommerce.Enum;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace LiraBelle.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class EstabelecimentoController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        private readonly IEstabelecimento EstabelecimentoCRUD;
 
-        public EstabelecimentoController(IEstabelecimento _Crud)
+        private readonly IUsuario UsuarioCRUD;
+
+        public UsuarioController(IUsuario _Crud)
         {
-            EstabelecimentoCRUD = _Crud;
+            UsuarioCRUD = _Crud;
         }
 
         public async Task<IActionResult> Get()
@@ -28,7 +28,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await EstabelecimentoCRUD.GetAsync();
+                var serv = await UsuarioCRUD.GetAsync();
 
                 return Ok(serv);
             }
@@ -44,7 +44,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await EstabelecimentoCRUD.GetAsync(Id);
+                var serv = await UsuarioCRUD.GetAsync(Id);
 
                 return Ok(serv);
             }
@@ -55,19 +55,19 @@ namespace LiraBelle.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Estabelecimento cadastro)
+        public async Task<IActionResult> Add([FromBody] Usuario cadastro)
         {
             try
             {
                 if (cadastro != null)
                 {
-                    await EstabelecimentoCRUD.AddAsync(cadastro);
+                    await UsuarioCRUD.AddAsync(cadastro);
 
                     return Ok();
                 }
                 else
                 {
-                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.EstabelecimentoNaoInformado));
+                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.UsuarioNaoInformado));
                 }
             }
             catch (Exception ex)
@@ -77,19 +77,19 @@ namespace LiraBelle.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Edit([FromBody] Estabelecimento cadastro)
+        public async Task<IActionResult> Edit([FromBody] Usuario cadastro)
         {
             try
             {
                 if (cadastro != null)
                 {
-                    await EstabelecimentoCRUD.EditAsync(cadastro);
+                    await UsuarioCRUD.EditAsync(cadastro);
 
                     return Ok();
                 }
                 else
                 {
-                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.EstabelecimentoNaoInformado));
+                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.UsuarioNaoInformado));
                 }
             }
             catch (Exception ex)
@@ -106,13 +106,13 @@ namespace LiraBelle.Controllers
             {
                 if (id != null)
                 {
-                    await EstabelecimentoCRUD.DeleteAsync(id ?? 0);
+                    await UsuarioCRUD.DeleteAsync(id ?? 0);
 
                     return Ok();
                 }
                 else
                 {
-                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.EstabelecimentoNaoInformado));
+                    return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.UsuarioNaoInformado));
                 }
             }
             catch (Exception ex)
@@ -122,3 +122,4 @@ namespace LiraBelle.Controllers
         }
     }
 }
+

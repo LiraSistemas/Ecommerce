@@ -12,8 +12,7 @@ namespace LiraCore.Entidades
         public string CpfCnpj {get;set;}
         public string Apresentacao { get; set; }
         public string linkLogo { get; set; }
-        public StatusEstabelecimento Status { get; set; }
-
+        public StatusEstabelecimento Status { get; set; }        
 
     }
 }

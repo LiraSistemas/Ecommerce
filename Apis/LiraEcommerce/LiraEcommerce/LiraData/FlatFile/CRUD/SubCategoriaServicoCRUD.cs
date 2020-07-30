@@ -13,8 +13,7 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatLira.CadastroSubCategoriaServico.Max(X => X.Id) + 1;
-                cadastro.Categoria = FlatLira.CadastroCategoriaServico.Find(X => X.Id == cadastro.IdCategoria);
+                cadastro.Id = FlatLira.CadastroSubCategoriaServico.Count > 0 ? FlatLira.CadastroSubCategoriaServico.Max(X => X.Id) + 1 : 1;                
                 FlatLira.CadastroSubCategoriaServico.Add(cadastro);
                 FlatLira.SetCadastro<SubCategoriaServico>(FlatLira.CadastroSubCategoriaServico, FlatLira.ArqSubCategoriaServico);
 
@@ -65,10 +64,7 @@ namespace LiraData.FlatFile.CRUD
                 var Cad = FlatLira.CadastroSubCategoriaServico.Find(X => X.Id == cadastro.Id);                
                               
                 if (Cad != null)
-                {
-                    if (Cad.IdCategoria != cadastro.IdCategoria)
-                        cadastro.Categoria = FlatLira.CadastroCategoriaServico.Find(X => X.Id == cadastro.IdCategoria);
-
+                {                    
                     FlatLira.CadastroSubCategoriaServico[FlatLira.CadastroSubCategoriaServico.IndexOf(cadastro)] = cadastro;
                 }
 

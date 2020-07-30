@@ -15,7 +15,7 @@ namespace LiraData.FlatFile.CRUD
         {
             try
             {
-                cadastro.Id = FlatLira.CadastroProdutos.Max(X => X.Id) + 1;
+                cadastro.Id = FlatLira.CadastroProdutos.Count > 0 ? FlatLira.CadastroProdutos.Max(X => X.Id) + 1 : 1;
                 FlatLira.CadastroProdutos.Add(cadastro);
                 FlatLira.SetCadastro<Produto>(FlatLira.CadastroProdutos, FlatLira.ArqProdutos);
 

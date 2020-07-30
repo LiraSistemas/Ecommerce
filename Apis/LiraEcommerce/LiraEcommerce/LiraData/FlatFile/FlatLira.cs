@@ -21,6 +21,7 @@ namespace LiraData.FlatFile
         public const string ArqCliente = "CadastroCliente.bin";
 
         public const string ArqEstabelecimento = "CadastroEstabelecimento.bin";
+        public const string ArqUsuario = "CadastroUsuario.bin";
 
 
         private static List<Produto> _CadastroProdutos;
@@ -33,6 +34,7 @@ namespace LiraData.FlatFile
         private static List<Cliente> _CadastroCliente;
 
         private static List<Estabelecimento> _CadastroEstabelecimento;
+        private static List<Usuario> _CadastroUsuario;
         public static List<Produto> CadastroProdutos 
         {
             get 
@@ -153,7 +155,6 @@ namespace LiraData.FlatFile
                 _CadastroCliente = value;
             }
         }
-
         public static List<Estabelecimento> CadastroEstabelecimento
         {
             get
@@ -174,6 +175,27 @@ namespace LiraData.FlatFile
                 _CadastroEstabelecimento = value;
             }
         }
+        public static List<Usuario> CadastroUsuario
+        {
+            get
+            {
+                if (_CadastroUsuario != null)
+                {
+                    return _CadastroUsuario;
+
+                }
+                else
+                {
+                    CadastroUsuario = GetCadastro<Usuario>(ArqUsuario);
+                    return _CadastroUsuario;
+                }
+            }
+            set
+            {
+                _CadastroUsuario = value;
+            }
+        }
+
 
         private static List<T> GetCadastro<T>(string Arquivo)
         {
