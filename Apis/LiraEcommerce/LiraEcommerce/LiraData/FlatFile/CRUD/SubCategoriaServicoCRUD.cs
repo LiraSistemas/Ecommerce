@@ -96,6 +96,11 @@ namespace LiraData.FlatFile.CRUD
             return FlatLira.CadastroSubCategoriaServico;
         }
 
+        public List<SubCategoriaServico> Get(CategoriaServico categoria)
+        {
+            return FlatLira.CadastroSubCategoriaServico.Where(X => X.IdCategoria == categoria.Id).ToList();
+        }
+
         public Task<SubCategoriaServico> GetAsync(int CodigoObjeto)
         {
             Task<SubCategoriaServico> T = new Task<SubCategoriaServico>(() => { return Get(CodigoObjeto); });
@@ -107,6 +112,14 @@ namespace LiraData.FlatFile.CRUD
         public Task<List<SubCategoriaServico>> GetAsync()
         {
             Task<List<SubCategoriaServico>> T = new Task<List<SubCategoriaServico>>(() => { return Get(); });
+            T.Start();
+
+            return T;
+        }
+
+        public Task<List<SubCategoriaServico>> GetAsync(CategoriaServico categoria)
+        {
+            Task<List<SubCategoriaServico>> T = new Task<List<SubCategoriaServico>>(() => { return Get(categoria); });
             T.Start();
 
             return T;

@@ -1,3 +1,7 @@
+using LiraBelle.Interfaces;
+using LiraBelle.Repositorios;
+using LiraBelle.RepositoriosViewModel;
+using LiraBelle.ViewModel;
 using LiraCore.Interfaces;
 using LiraData.Entity.CRUD;
 using Microsoft.AspNetCore.Builder;
@@ -28,6 +32,9 @@ namespace LiraEcommerce
             services.AddScoped(typeof(ISubCategoriaServico), typeof(LiraData.FlatFile.CRUD.SubCategoriaServicoCRUD));
             services.AddScoped(typeof(IEstabelecimento), typeof(LiraData.FlatFile.CRUD.EstabelecimentoCRUD));
             services.AddScoped(typeof(IUsuario), typeof(LiraData.FlatFile.CRUD.UsuarioCRUD));
+
+            services.AddScoped<ICategoriaServicoRepositorioViewModel>(X => ActivatorUtilities.CreateInstance<CategoriaServicoRepositorioViewModel>(X, X.GetService<ICategoriaServico>(), X.GetService<ISubCategoriaServico>()));
+            services.AddScoped<ISubCategoriaServicoRepositorioModel>(X => ActivatorUtilities.CreateInstance<SubCategoriaServicoRepositorioViewModel>(X, X.GetService<ISubCategoriaServico>(), X.GetService<ICategoriaServico>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

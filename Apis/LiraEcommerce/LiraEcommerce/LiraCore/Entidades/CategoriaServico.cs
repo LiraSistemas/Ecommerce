@@ -8,7 +8,7 @@ namespace LiraCore.Entidades
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public string LinkImagem { get; set; }
-        public List<SubCategoriaServico> SubCategorias { get; set; }
+        public string LinkImagem { get; set; }    
+                
     }
 }

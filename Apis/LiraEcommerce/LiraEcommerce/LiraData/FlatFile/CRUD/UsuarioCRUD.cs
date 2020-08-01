@@ -97,6 +97,11 @@ namespace LiraData.FlatFile.CRUD
             return FlatLira.CadastroUsuario;
         }
 
+        public Task<List<Usuario>> Get(Estabelecimento estabelecimento)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Usuario> GetAsync(int CodigoObjeto)
         {
             Task<Usuario> T = new Task<Usuario>(() => { return Get(CodigoObjeto); });

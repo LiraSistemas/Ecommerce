@@ -13,5 +13,23 @@ namespace LiraBelle.ViewModel
         public string LinkImagem { get; set; }
         public List<SubCategoriaServicoViewModel> SubCategorias { get; set; }
 
+        public CategoriaServicoViewModel(int Id, string Descricao, string LinkImagem = null)
+        {
+            this.Id = Id;
+            this.Descricao = Descricao;
+            this.LinkImagem = LinkImagem;
+        }
+
+        public static CategoriaServicoViewModel Create(CategoriaServico Categoria)
+        {
+            return new CategoriaServicoViewModel(Categoria.Id, Categoria.Descricao, Categoria.LinkImagem);    
+        }
+        public static CategoriaServicoViewModel Create(CategoriaServico Categoria, List<SubCategoriaServico> SubCategorias)
+        {
+            var categoria = Create(Categoria);                        
+            categoria.SubCategorias = SubCategorias.Select(SubCategoria => SubCategoriaServicoViewModel.Create(SubCategoria)).ToList();
+
+            return categoria;
+        }
     }
 }

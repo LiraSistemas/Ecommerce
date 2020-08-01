@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LiraBelle.Interfaces;
 using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using LiraEcommerce;
@@ -13,10 +14,12 @@ namespace LiraBelle.Controllers
     public class CategoriaServicoController : ControllerBase
     {
         private readonly ICategoriaServico CategoriaServicoCRUD;
+        private readonly ICategoriaServicoRepositorioViewModel CategoriaServicoRepositorio;
 
-        public CategoriaServicoController(ICategoriaServico _Crud)
+        public CategoriaServicoController(ICategoriaServico _Crud, ICategoriaServicoRepositorioViewModel _CategoriaServicoViewModel)
         {
             CategoriaServicoCRUD = _Crud;
+            CategoriaServicoRepositorio = _CategoriaServicoViewModel;
         }
         
         public async Task<IActionResult> Get()
@@ -24,7 +27,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await CategoriaServicoCRUD.GetAsync();
+                var serv = await CategoriaServicoRepositorio.Get();
 
                 return Ok(serv);
             }
@@ -40,7 +43,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await CategoriaServicoCRUD.GetAsync(Id);
+                var serv = await CategoriaServicoRepositorio.Get(Id);
 
                 return Ok(serv);
             }

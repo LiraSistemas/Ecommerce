@@ -5,3 +5,7 @@ CATEGORIA
 SUBCATEGORIA
 /SubCategoriaServico GET, POST, PUT
 /SubCategoriaServico GET, DELETE
+
+Estabelecimento
+/Estabelecimento GET, POST, PUT
+/Estabelecimento GET, DELETE

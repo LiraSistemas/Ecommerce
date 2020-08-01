@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LiraBelle.Interfaces;
+using LiraBelle.Repositorios;
 using LiraCore.Entidades;
 using LiraCore.Interfaces;
+using LiraData.FlatFile.CRUD;
 using LiraEcommerce;
 using LiraEcommerce.Enum;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace LiraBelle.Controllers
 {
@@ -14,11 +20,16 @@ namespace LiraBelle.Controllers
     [ApiController]
     public class SubCategoriaServicoController : ControllerBase
     {
-        private readonly ISubCategoriaServico SubCategoriaServicoCRUD;
+        private readonly ISubCategoriaServico SubCategoriaServicoCRUD;        
+        private readonly ISubCategoriaServicoRepositorioModel subCategoriaRepositorioModel;
 
-        public SubCategoriaServicoController(ISubCategoriaServico _Crud)
+        public SubCategoriaServicoController(ISubCategoriaServico _Crud, ISubCategoriaServicoRepositorioModel _Model)
         {
-            SubCategoriaServicoCRUD = _Crud;
+            SubCategoriaServicoCRUD = _Crud;            
+            subCategoriaRepositorioModel = _Model;
+
+            //var host = CreateHostBuilder().Build();
+            //host.Services.GetRequiredService<ISubCategoriaServicoRepositorioModel>();
         }
 
         public async Task<IActionResult> Get()
@@ -26,9 +37,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await SubCategoriaServicoCRUD.GetAsync();
-
-                return Ok(serv);
+                return Ok(await subCategoriaRepositorioModel.Get());               
             }
             catch (Exception ex)
             {
@@ -42,9 +51,8 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await SubCategoriaServicoCRUD.GetAsync(Id);
-
-                return Ok(serv);
+                return Ok(await subCategoriaRepositorioModel.Get(Id));
+                
             }
             catch (Exception ex)
             {
@@ -118,5 +126,12 @@ namespace LiraBelle.Controllers
                 return NotFound(ExtencaoController.GetRetorno(RetornoRequisicao.ErroNaoIdentificado, ex));
             }
         }
+
+        public static IHostBuilder CreateHostBuilder() =>
+        Host.CreateDefaultBuilder()
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
     }
 }

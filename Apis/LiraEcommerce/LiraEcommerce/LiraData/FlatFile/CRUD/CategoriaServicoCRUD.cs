@@ -88,42 +88,13 @@ namespace LiraData.FlatFile.CRUD
 
         public CategoriaServico Get(int CodigoObjeto)
         {
-            var retorno = FlatLira.CadastroCategoriaServico.Where(X => X.Id == CodigoObjeto).FirstOrDefault();
-            retorno.SubCategorias = FlatLira.CadastroSubCategoriaServico.Where(X => X.IdCategoria == retorno.Id).ToList();
-
+            var retorno = FlatLira.CadastroCategoriaServico.Where(X => X.Id == CodigoObjeto).FirstOrDefault();            
             return retorno;
         }
 
         public List<CategoriaServico> Get()
         {
-            List<CategoriaServico> retorno;
-
-            if (FlatLira.CadastroSubCategoriaServico.Count > 0)
-            {
-                 retorno = (from cat in FlatLira.CadastroCategoriaServico
-                              join sub in FlatLira.CadastroSubCategoriaServico.DefaultIfEmpty() on cat.Id equals sub?.IdCategoria ?? 0
-                              group new { cat, sub } by cat.Id into newgroup
-                              select new CategoriaServico()
-                              {
-                                  Id = newgroup.FirstOrDefault().cat.Id,
-                                  Descricao = newgroup.FirstOrDefault().cat.Descricao,
-                                  SubCategorias = newgroup.Select(X => new SubCategoriaServico()
-                                  { 
-                                      Id = X.sub.Id,
-                                      IdCategoria = X.sub.IdCategoria,
-                                      Descricao = X.sub.Descricao,
-                                      Link = X.sub.Link
-
-                                      }).ToList()
-                              }).ToList();
-            }
-            else
-            {
-                retorno = FlatLira.CadastroCategoriaServico;
-            }
-
-
-            return retorno.ToList();
+            return FlatLira.CadastroCategoriaServico;            
         }
 
         public Task<CategoriaServico> GetAsync(int CodigoObjeto)
