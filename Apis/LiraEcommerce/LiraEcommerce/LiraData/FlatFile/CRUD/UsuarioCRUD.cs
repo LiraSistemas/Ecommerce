@@ -97,9 +97,9 @@ namespace LiraData.FlatFile.CRUD
             return FlatLira.CadastroUsuario;
         }
 
-        public Task<List<Usuario>> Get(Estabelecimento estabelecimento)
+        public List<Usuario> Get(Estabelecimento estabelecimento)
         {
-            throw new NotImplementedException();
+            return FlatLira.CadastroUsuario.Where(X => X.EstabelecimentoId == estabelecimento.Id).ToList();
         }
 
         public Task<Usuario> GetAsync(int CodigoObjeto)
@@ -117,5 +117,14 @@ namespace LiraData.FlatFile.CRUD
 
             return T;
         }
+
+        public Task<List<Usuario>> GetAsync(Estabelecimento estabelecimento)
+        {
+            Task<List<Usuario>> T = new Task<List<Usuario>>(() => { return Get(estabelecimento); });
+            T.Start();
+
+            return T;
+        }
+
     }
 }

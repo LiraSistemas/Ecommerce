@@ -35,6 +35,7 @@ namespace LiraEcommerce
 
             services.AddScoped<ICategoriaServicoRepositorioViewModel>(X => ActivatorUtilities.CreateInstance<CategoriaServicoRepositorioViewModel>(X, X.GetService<ICategoriaServico>(), X.GetService<ISubCategoriaServico>()));
             services.AddScoped<ISubCategoriaServicoRepositorioModel>(X => ActivatorUtilities.CreateInstance<SubCategoriaServicoRepositorioViewModel>(X, X.GetService<ISubCategoriaServico>(), X.GetService<ICategoriaServico>()));
+            services.AddScoped<IEstabelecimentoRepositorioViewModel>(X => ActivatorUtilities.CreateInstance<EstabelecimentoRepositorioViewModel>(X, X.GetService<IEstabelecimento>(), X.GetService<IUsuario>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

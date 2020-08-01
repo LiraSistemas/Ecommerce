@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LiraBelle.Interfaces;
 using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using LiraEcommerce;
@@ -17,10 +18,11 @@ namespace LiraBelle.Controllers
     public class EstabelecimentoController : ControllerBase
     {
         private readonly IEstabelecimento EstabelecimentoCRUD;
-
-        public EstabelecimentoController(IEstabelecimento _Crud)
+        private readonly IEstabelecimentoRepositorioViewModel EstabelecimentoRepositorio;
+        public EstabelecimentoController(IEstabelecimento _Crud, IEstabelecimentoRepositorioViewModel _Repositorio)
         {
             EstabelecimentoCRUD = _Crud;
+            EstabelecimentoRepositorio = _Repositorio;
         }
 
         public async Task<IActionResult> Get()
@@ -28,7 +30,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await EstabelecimentoCRUD.GetAsync();
+                var serv = await EstabelecimentoRepositorio.Get();
 
                 return Ok(serv);
             }
@@ -44,7 +46,7 @@ namespace LiraBelle.Controllers
 
             try
             {
-                var serv = await EstabelecimentoCRUD.GetAsync(Id);
+                var serv = await EstabelecimentoRepositorio.Get(Id);
 
                 return Ok(serv);
             }

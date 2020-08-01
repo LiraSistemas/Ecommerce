@@ -6,6 +6,7 @@ namespace LiraCore.Interfaces
 {
     public interface IUsuario : ICadastro<Usuario>
     {
-        public Task<List<Usuario>> Get(Estabelecimento estabelecimento);
+        public List<Usuario> Get(Estabelecimento estabelecimento);
+        public Task<List<Usuario>> GetAsync(Estabelecimento estabelecimento);
     }
 }

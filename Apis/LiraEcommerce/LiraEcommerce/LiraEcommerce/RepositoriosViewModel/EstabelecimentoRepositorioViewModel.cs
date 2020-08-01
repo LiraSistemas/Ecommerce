@@ -1,7 +1,5 @@
 ﻿using LiraBelle.Interfaces;
 using LiraBelle.ViewModel;
-using LiraCore.Entidades;
-using LiraCore.Enuns;
 using LiraCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -49,7 +47,12 @@ namespace LiraBelle.RepositoriosViewModel
         {
             var estabelecimento = await _Estabelecimento.GetAsync(Id);
 
+            if (estabelecimento == null)
+                return null;
+
             var Usuarios = await _Usuario.GetAsync(estabelecimento);
+
+            return EstabelecimentoViewModel.Create(estabelecimento, Usuarios);
         }
         public void Dispose()
         {

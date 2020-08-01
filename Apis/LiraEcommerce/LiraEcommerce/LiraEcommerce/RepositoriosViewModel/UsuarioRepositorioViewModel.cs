@@ -1,5 +1,6 @@
 ﻿using LiraBelle.Interfaces;
 using LiraBelle.ViewModel;
+using LiraCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,13 @@ namespace LiraBelle.RepositoriosViewModel
     public class UsuarioRepositorioViewModel : IUsuarioRepositorioViewModel
     {
 
+        IUsuario Usuario { get; set; } 
+        IEstabelecimento Estabelecimento { get;set; }
+        public UsuarioRepositorioViewModel(IUsuario usuario, IEstabelecimento estabelecimento)
+        {
+            Usuario = usuario;
+            Estabelecimento = estabelecimento;
+        }
         public Task<List<UsuarioViewModel>> Get()
         {
             throw new NotImplementedException();
