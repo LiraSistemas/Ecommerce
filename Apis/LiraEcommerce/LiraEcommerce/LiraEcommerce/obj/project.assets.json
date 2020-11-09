@@ -5119,11 +5119,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
+      "projectUniqueName": "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
       "projectName": "LiraBelle",
-      "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
+      "projectPath": "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\LiraBelle.csproj",
       "packagesPath": "C:\\Users\\Lira\\.nuget\\packages\\",
-      "outputPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\obj\\",
+      "outputPath": "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraEcommerce\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5142,11 +5142,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj": {
-              "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj"
+            "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj": {
+              "projectPath": "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraCore\\LiraCore.csproj"
             },
-            "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj": {
-              "projectPath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj"
+            "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj": {
+              "projectPath": "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraData\\LiraData.csproj"
             }
           }
         }

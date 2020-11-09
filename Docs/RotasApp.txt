@@ -9,3 +9,7 @@ SUBCATEGORIA
 Estabelecimento
 /Estabelecimento GET, POST, PUT
 /Estabelecimento GET, DELETE
+
+Usuario
+Usuario GET, POST, PUT
+Usuario GET, DELETE

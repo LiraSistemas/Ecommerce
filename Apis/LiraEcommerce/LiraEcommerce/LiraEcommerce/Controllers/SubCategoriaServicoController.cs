@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using LiraBelle.Interfaces;
-using LiraBelle.Repositorios;
 using LiraCore.Entidades;
 using LiraCore.Interfaces;
-using LiraData.FlatFile.CRUD;
 using LiraEcommerce;
 using LiraEcommerce.Enum;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace LiraBelle.Controllers

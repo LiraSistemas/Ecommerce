@@ -22,6 +22,9 @@ namespace LiraBelle.ViewModel
 
         public static CategoriaServicoViewModel Create(CategoriaServico Categoria)
         {
+            if (Categoria == null)
+                return null;
+
             return new CategoriaServicoViewModel(Categoria.Id, Categoria.Descricao, Categoria.LinkImagem);    
         }
         public static CategoriaServicoViewModel Create(CategoriaServico Categoria, List<SubCategoriaServico> SubCategorias)

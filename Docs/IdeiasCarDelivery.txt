@@ -1,0 +1,73 @@
+
+
+LirasCar ????
+CarLira
+LiraCars
+Carpliss
+CarHelp
+CarPlus
+MyCar
+NiceCar
+BelleCar
+iuCar
+sosCar
+CarSos
+Kars
+carss
+
+
+
+
+
+Lavagem a Seco
+Enceramento
+Polimento
+Limpeza Interna
+Martelinho de Ouro
+Troca de oleo
+	Troca de Filtros
+Troca de Bateria
+Eletricista
+	Troca de Lampadas
+	Pequenos Reparos
+	Instalação de Som
+Troca de Pneu
+Guicho
+Limpeza de Ar condicionado
+
+
+Prestador
+Perfil
+	Foto
+	Logo
+	Fotos de Serviços Efetuados
+	Categorias Atuantes
+	Valor do Serviço
+		Por Tipo de chassi (Ret, Sedan, SUV, Mini)
+Opção de Pagamento
+Serviços Efetuados
+	Feedback
+	Total de Serviços(Por categoria)	
+Serviços Agendados
+Solicitações De Serviço	
+	Endereço do Solicitante
+	Srviços Solicitados
+Chat Perguntas pontuais
+Historico do Cliente na Empresa current
+	
+Cliente
+ Perfil
+	Foto
+	Dados Pessoais
+	Cadastro Endereçoes 	
+	Cadastro de Cartoes
+	Placa
+Ultimos Serviços Solicitados e Executados
+Prestadores Favoritos
+Cadastro do Veiculo
+Cupom Promocional
+Cadastro de Marca Modelo Cor
+Foto do veiculo Opcional
+
+
+

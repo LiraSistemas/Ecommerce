@@ -1,5 +1,6 @@
 ﻿using LiraBelle.Interfaces;
 using LiraBelle.ViewModel;
+using LiraCore.Entidades;
 using LiraCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,26 +12,60 @@ namespace LiraBelle.RepositoriosViewModel
     public class UsuarioRepositorioViewModel : IUsuarioRepositorioViewModel
     {
 
-        IUsuario Usuario { get; set; } 
-        IEstabelecimento Estabelecimento { get;set; }
+        IUsuario _Usuario { get; set; } 
+        IEstabelecimento _Estabelecimento { get;set; }
         public UsuarioRepositorioViewModel(IUsuario usuario, IEstabelecimento estabelecimento)
         {
-            Usuario = usuario;
-            Estabelecimento = estabelecimento;
+            _Usuario = usuario;
+            _Estabelecimento = estabelecimento;
         }
-        public Task<List<UsuarioViewModel>> Get()
+        public async Task<List<UsuarioViewModel>> Get()
         {
-            throw new NotImplementedException();
+            var usuarios = await _Usuario.GetAsync();
+            var estabelecimento = await _Estabelecimento.GetAsync();
+
+            return (from user in usuarios
+                    join est in estabelecimento.DefaultIfEmpty() on user.EstabelecimentoId equals est.Id                    
+                    select new UsuarioViewModel(user.Id,
+                                                user.Nome,
+                                                user.NomeUsuario,
+                                                user.Email,
+                                                user.Telefone,
+                                                user.UsuarioAdm)
+                    {
+
+                        CategoriasHabilitadas = user.CategoriasHabilitadas?.Select(X => CategoriaServicoViewModel.Create(X)).ToList(),
+                        Estabelecimento = est != null ? EstabelecimentoViewModel.Create(est) : null
+
+                    }).ToList();
         }
 
-        public Task<UsuarioViewModel> Get(int Id)
+        public async Task<UsuarioViewModel> Get(int Id)
         {
-            throw new NotImplementedException();
+            var usuario = await _Usuario.GetAsync(Id);
+
+            if (usuario == null)
+                return null;
+
+            var estabelecimento = await _Estabelecimento.GetAsync(usuario.EstabelecimentoId);
+
+            var user = UsuarioViewModel.Create(usuario);
+            user.Estabelecimento = EstabelecimentoViewModel.Create(estabelecimento);
+
+            return user;
+
         }
 
-        public Task<List<UsuarioViewModel>> Get(EstabelecimentoViewModel estabelecimento)
+        public async Task<List<UsuarioViewModel>> Get(EstabelecimentoViewModel estabelecimento)
         {
-            throw new NotImplementedException();
+            var est = await _Estabelecimento.GetAsync(estabelecimento.Id);
+
+            if (est == null)
+                return null;
+
+            var usuarios = await _Usuario.GetAsync(est);
+
+            return usuarios.Select(X => UsuarioViewModel.Create(X)).ToList();
         }
         public void Dispose()
         {

@@ -22,25 +22,39 @@ namespace LiraBelle.RepositoriosViewModel
             var estabelecimentos = await _Estabelecimento.GetAsync();
             var Usuarios = await _Usuario.GetAsync();
 
-            return (from est in estabelecimentos
-                    join users in Usuarios on est.Id equals users.EstabelecimentoId
-                    group new { est, users } by est.Id into newgroup
-                    select new EstabelecimentoViewModel(newgroup.FirstOrDefault().est.Id,
-                                                        newgroup.FirstOrDefault().est.Nome,
-                                                        newgroup.FirstOrDefault().est.CpfCnpj,
-                                                        newgroup.FirstOrDefault().est.Apresentacao,
-                                                        newgroup.FirstOrDefault().est.linkLogo,                                                        
-                                                        newgroup.FirstOrDefault().est.IdUsuarioAdm,
-                                                        newgroup.FirstOrDefault().est.Endereco,
-                                                        newgroup.FirstOrDefault().est.EnderecoNumero,
-                                                        newgroup.FirstOrDefault().est.Bairro,
-                                                        newgroup.FirstOrDefault().est.Cidade,
-                                                        newgroup.FirstOrDefault().est.Complemento,
-                                                        newgroup.FirstOrDefault().est.Telefones,
-                                                        newgroup.FirstOrDefault().est.Status)
-                    {
-                        Usuarios = newgroup.Select(X => UsuarioViewModel.Create(X.users)).ToList()
-                    }).ToList();
+            try
+            {
+                // transformar em um join posteriormente, dando pau e nao quis perder tempo
+                var estab = (from est in estabelecimentos
+                             select new EstabelecimentoViewModel(est.Id,
+                                                                 est.Nome,
+                                                                 est.CpfCnpj,
+                                                                 est.Apresentacao,
+                                                                 est.linkLogo,
+                                                                 est.IdUsuarioAdm,
+                                                                 est.Endereco,
+                                                                 est.EnderecoNumero,
+                                                                 est.Bairro,
+                                                                 est.Cidade,
+                                                                 est.Complemento,
+                                                                 est.Telefones,
+                                                                 est.Status)).ToList();
+
+                estab.All(X => {
+                    X.Usuarios = Usuarios.Where(Y => Y.EstabelecimentoId == X.Id).Select(Z => UsuarioViewModel.Create(Z)).ToList();
+                    return true;
+                });
+
+                return estab.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+
+
+
         }
 
         public async Task<EstabelecimentoViewModel> Get(int Id)

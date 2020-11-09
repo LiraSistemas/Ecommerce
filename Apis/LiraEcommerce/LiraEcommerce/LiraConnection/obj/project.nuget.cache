@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bz+GPEritMJD1zJ7rYGbTZN14ueOyV8sf8alsY1ZNUVH2E2EdduCLW8h7tSVhzpSB2KzDn2vzY1Ihjgope2i9A==",
+  "dgSpecHash": "FbxJDLvexAAwc3iVGvIM6MoRS5jgJ0y5IuYNsPI55dfV03eDSLFkP3GFBbkjONYFTbPZ+Mr/x7MpNRjuYzNFng==",
   "success": true,
-  "projectFilePath": "C:\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj",
+  "projectFilePath": "C:\\GitFontes\\FontesLirasSistemas\\EcommerceDosLira\\Apis\\LiraEcommerce\\LiraEcommerce\\LiraConnection\\LiraConnection.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lira\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Lira\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

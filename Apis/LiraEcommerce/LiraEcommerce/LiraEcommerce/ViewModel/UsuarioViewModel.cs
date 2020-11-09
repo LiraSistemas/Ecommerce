@@ -42,13 +42,16 @@ namespace LiraBelle.ViewModel
 
         public static UsuarioViewModel Create(Usuario usuario)
         {
+            if (usuario == null)
+                return null;
+
             return new UsuarioViewModel(usuario.Id,
                                         usuario.Nome,
                                         usuario.NomeUsuario,
                                         usuario.Email,
                                         usuario.Telefone,
                                         usuario.UsuarioAdm,
-                                        usuario.CategoriasHabilitadas.Select(X => CategoriaServicoViewModel.Create(X)).ToList());
+                                        (usuario.CategoriasHabilitadas != null ? usuario.CategoriasHabilitadas.Select(X => CategoriaServicoViewModel.Create(X)).ToList() : null));
         }
 
         public static UsuarioViewModel Create(Usuario usuario, Estabelecimento estabelecimento)
